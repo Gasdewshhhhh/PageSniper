@@ -1,49 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PageSniper | Cyberpunk Web Developer</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PageSniper | Web Development</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Hero Section -->
-    <header>
-        <div class="hero-content">
-            <h1 class="glitch" data-text="PageSniper">PageSniper</h1>
-            <p class="subtitle">Your Vision, My Code. Professional Web Design & Development</p>
-            <a href="#services" class="cta-button">Explore My Work</a>
-        </div>
-    </header>
+  <!-- Scanline Effect -->
+  <div class="scanline"></div>
+  
+  <!-- Vignette Effect -->
+  <div class="vignette"></div>
+  
+  <!-- Particles Background -->
+  <canvas id="particles-bg"></canvas>
 
-    <!-- Services Section -->
-    <section id="services">
+  <!-- Custom Cursor -->
+  <div id="custom-cursor" class="hidden">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00FFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="12 2 19 21 12 17 5 21 12 2" />
+    </svg>
+  </div>
+
+  <!-- Navbar -->
+  <nav id="navbar" class="navbar">
+    <div class="h-line"></div>
+    <div class="container">
+      <div class="logo">
+        <a href="#home">
+          <span class="logo-text">
+            <span class="logo-part1">&lt;PAGE</span>
+            <span class="logo-part2">SNIPER</span>
+            <span class="logo-part1">/&gt;</span>
+          </span>
+        </a>
+      </div>
+      
+      <div class="nav-links">
+        <button class="nav-link" data-section="home">HOME</button>
+        <button class="nav-link" data-section="about">ABOUT</button>
+        <button class="nav-link" data-section="services">SERVICES</button>
+        <button class="nav-link" data-section="portfolio">PORTFOLIO</button>
+        <button class="nav-link" data-section="contact">CONTACT</button>
+      </div>
+      
+      <div class="mobile-toggle">
+        <button>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden">
+      <button class="mobile-nav-link" data-section="home">HOME</button>
+      <button class="mobile-nav-link" data-section="about">ABOUT</button>
+      <button class="mobile-nav-link" data-section="services">SERVICES</button>
+      <button class="mobile-nav-link" data-section="portfolio">PORTFOLIO</button>
+      <button class="mobile-nav-link" data-section="contact">CONTACT</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="glitch-container">
+      <h1 class="glitch-title" data-text="PAGESNIPER">
+        <span class="glitch-part1">PAGE</span>
+        <span class="glitch-part2">SNIPER</span>
+      </h1>
+    </div>
+    <p class="hero-tagline">
+      <span class="tag-brackets">&lt;</span> 
+      ONE PAGE WEBSITES FOR THE DIGITAL ELITE 
+      <span class="tag-brackets">/&gt;</span>
+    </p>
+    <div class="hero-content">
+      <p>Crafting cutting-edge digital experiences that transform your vision into reality</p>
+      <button class="cta-button" data-section="contact">INITIATE PROJECT</button>
+    </div>
+    <div class="scroll-down">
+      <button data-section="about">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title"><span class="bracket">[</span> ABOUT <span class="bracket">]</span></h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>THE DIGITAL ARCHITECT</h3>
+          <p>I specialize in crafting bespoke digital experiences that blend cutting-edge technology with immersive design. With a passion for cyberpunk aesthetics and futuristic interfaces, I create websites that stand out in the digital frontier.</p>
+          <p>My approach combines technical precision with creative innovation, delivering solutions that not only meet but exceed client expectations. Each project is an opportunity to push boundaries and explore new possibilities in web development.</p>
+          <div class="stats">
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-skills">
+          <h3>TECH STACK</h3>
+          <div class="skills">
+            <div class="skill">
+              <div class="skill-name">HTML5/CSS3</div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 95%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 90%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">React/NextJS</div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 85%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">Node.js</div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">UI/UX Design</div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 88%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill-name">WebGL/Three.js</div>
+              <div class="skill-bar">
+                <div class="skill-level" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2 class="section-title"><span class="bracket">[</span> SERVICES <span class="bracket">]</span></h2>
+      <div class="services-grid">
         <div class="service-card">
-            <h2>Website Design</h2>
-            <p>High-performance, responsive websites tailored to your needs.</p>
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>WEB DEVELOPMENT</h3>
+          <p>Crafting responsive, performance-optimized websites and web applications with clean, maintainable code.</p>
+          <ul class="service-features">
+            <li>Custom Website Development</li>
+            <li>Progressive Web Apps (PWA)</li>
+            <li>E-commerce Solutions</li>
+            <li>Content Management Systems</li>
+          </ul>
         </div>
+        
         <div class="service-card">
-            <h2>Roblox UI Design</h2>
-            <p>Custom screen GUIs designed for the ultimate user experience.</p>
+          <div class="service-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h3>UI/UX DESIGN</h3>
+          <p>Creating immersive user experiences with intuitive interfaces and cyberpunk-inspired visual aesthetics.</p>
+          <ul class="service-features">
+            <li>Wireframing & Prototyping</li>
+            <li>Interactive User Interfaces</li>
+            <li>User Flow Optimization</li>
+            <li>Responsive Design Systems</li>
+          </ul>
         </div>
+
         <div class="service-card">
-            <h2>Web & App Development</h2>
-            <p>Bring your ideas to life with modern technologies like HTML, CSS, and JS.</p>
+          <div class="service-icon">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3>PERFORMANCE OPTIMIZATION</h3>
+          <p>Enhancing website speed and performance for a seamless user experience and better search rankings.</p>
+          <ul class="service-features">
+            <li>Core Web Vitals Optimization</li>
+            <li>Image & Asset Optimization</li>
+            <li>Code Minification</li>
+            <li>Caching Strategies</li>
+          </ul>
         </div>
-    </section>
 
-    <!-- Featured Project (Customer's Website) -->
-    <section id="featured-project">
-        <h2>Featured Project</h2>
-        <iframe src="https://gasdewshhhhh.github.io/G-Lock-Leaks-Services-V3/" frameborder="0"></iframe>
-    </section>
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3>INTERACTIVE ANIMATIONS</h3>
+          <p>Adding life to websites with engaging animations and interactive elements for a memorable experience.</p>
+          <ul class="service-features">
+            <li>Scroll-Based Animations</li>
+            <li>Particle Effects</li>
+            <li>3D Elements with Three.js</li>
+            <li>Custom Cursor Effects</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 PageSniper. Crafted with code & passion.</p>
-    </footer>
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2 class="section-title"><span class="bracket">[</span> FEATURED PROJECT <span class="bracket">]</span></h2>
+      <div class="portfolio-showcase">
+        <div class="project-card">
+          <h3>G-LOCK LEAKS SERVICES</h3>
+          
+          <div class="project-display">
+            <iframe
+              src="https://gasdewshhhhh.github.io/G-Lock-Leaks-Services-V3/"
+              title="G-LOCK LEAKS SERVICES"
+              loading="lazy">
+            </iframe>
+          </div>
+          
+          <p class="project-description">
+            A cyberpunk-themed leak services platform with advanced security features, high-tech design elements, and unique interactive animations. This website showcases my ability to create immersive digital experiences with cutting-edge web technologies.
+          </p>
+          
+          <div class="project-features">
+            <h4>KEY FEATURES:</h4>
+            <ul>
+              <li>Immersive 3D cyberpunk aesthetics</li>
+              <li>Interactive animated UI elements</li>
+              <li>Custom user interface with neon effects</li>
+              <li>Responsive design across all devices</li>
+              <li>Advanced particle and lighting effects</li>
+            </ul>
+          </div>
+          
+          <div class="project-tech">
+            <h4>TECHNOLOGIES:</h4>
+            <div class="tech-tags">
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>JavaScript</span>
+              <span>WebGL</span>
+              <span>Three.js</span>
+              <span>GSAP</span>
+            </div>
+          </div>
+          
+          <div class="project-links">
+            <a href="https://gasdewshhhhh.github.io/G-Lock-Leaks-Services-V3/" target="_blank" class="visit-btn">VISIT LIVE SITE</a>
+            <span class="project-id">PROJECT 01</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-cta">
+        <button class="cta-button" data-section="contact">START YOUR PROJECT</button>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title"><span class="bracket">[</span> CONTACT <span class="bracket">]</span></h2>
+      
+      <div class="contact-content">
+        <div class="contact-form-container">
+          <h3>SEND MESSAGE</h3>
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="name">NAME</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">EMAIL</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">SUBJECT</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">MESSAGE</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">SEND MESSAGE</button>
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>CONNECT</h3>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-text">
+                <h4>EMAIL</h4>
+                <p>Mapervez72@gmail.com</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-text">
+                <h4>LOCATION</h4>
+                <p>Neo-Digital District, Cyberpunk City</p>
+              </div>
+            </div>
+            
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="info-text">
+                <h4>RESPONSE TIME</h4>
+                <p>Within 24 hours</p>
+              </div>
+            </div>
+            
+            <div class="social-links">
+              <h4>FOLLOW ME</h4>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <h3>FAQ</h3>
+            <div class="faq-item">
+              <h4>How long does a project typically take?</h4>
+              <p>Most websites take 2-4 weeks from concept to launch, depending on complexity. Web applications may take 4-8 weeks.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h4>Do you offer maintenance after launch?</h4>
+              <p>Yes, I offer ongoing maintenance packages to keep your site secure, updated, and performing optimally.</p>
+            </div>
+            
+            <div class="faq-item">
+              <h4>What's your payment structure?</h4>
+              <p>Generally 50% upfront to begin work, with the remaining 50% due upon project completion before site launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <span class="logo-text">
+            <span class="logo-part1">&lt;PAGE</span>
+            <span class="logo-part2">SNIPER</span>
+            <span class="logo-part1">/&gt;</span>
+          </span>
+          <p>Precision websites for the digital frontier</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3>NAVIGATE</h3>
+          <button class="footer-link" data-section="home">Home</button>
+          <button class="footer-link" data-section="about">About</button>
+          <button class="footer-link" data-section="services">Services</button>
+          <button class="footer-link" data-section="portfolio">Portfolio</button>
+          <button class="footer-link" data-section="contact">Contact</button>
+        </div>
+        
+        <div class="footer-contact">
+          <h3>CONTACT</h3>
+          <p><i class="fas fa-envelope"></i> Mapervez72@gmail.com</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; <span id="current-year"></span> PageSniper. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
