@@ -1,163 +1,176 @@
-/* style.css */
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    background-color: #0a0a0a;
-    color: #f1f1f1;
-    overflow-x: hidden;
+    font-family: 'Share Tech Mono', monospace;
+    background: #0d0d0d;
+    color: #f00;
 }
 
+h1, h2, p {
+    color: #fff;
+}
+
+/* Hero Section */
 header {
-    background: #111;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid red;
-}
-
-.logo {
-    font-size: 1.8rem;
-    color: red;
-    text-transform: uppercase;
-}
-
-    .logo span {
-        color: #0ff;
-    }
-
-nav a {
-    color: #f1f1f1;
-    margin-left: 2rem;
-    text-decoration: none;
     position: relative;
-}
-
-    nav a::after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: -4px;
-        left: 0;
-        background-color: red;
-        transition: 0.3s;
-    }
-
-    nav a:hover::after {
-        width: 100%;
-    }
-
-.hero {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: linear-gradient(145deg, #111, #1a1a1a);
-    border-bottom: 2px solid red;
-}
-
-    .hero h1 {
-        font-size: 3rem;
-        color: red;
-    }
-
-    .hero p {
-        margin: 1rem 0;
-        color: #aaa;
-        font-size: 1.1rem;
-    }
-
-.btn {
-    background: red;
-    color: black;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 1rem;
-    display: inline-block;
-    transition: background 0.3s;
-}
-
-    .btn:hover {
-        background: #ff4444;
-    }
-
-section {
-    padding: 3rem 2rem;
-    text-align: center;
-}
-
-.cards {
+    height: 100vh;
+    background: url('https://via.placeholder.com/1920x1080/000000/ffffff/?text=Cyberpunk+Background') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.card {
-    background: #1a1a1a;
-    border: 2px solid red;
-    padding: 1.5rem;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px red;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-    .card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px #ff0000;
-    }
-
-    .card h3 {
-        color: #0ff;
-        margin-bottom: 0.5rem;
-    }
-
-    .card p {
-        color: #ccc;
-        font-size: 0.95rem;
-    }
-
-footer {
+    align-items: center;
     text-align: center;
-    padding: 2rem;
-    background: #111;
-    color: #666;
-    font-size: 0.9rem;
-    border-top: 2px solid red;
+    color: #fff;
 }
 
-/* Glitch effect */
-.glitch {
-    animation: glitch 1s infinite;
+.hero-content {
+    text-align: center;
+    padding: 20px;
 }
+
+.glitch {
+    font-size: 4rem;
+    color: #f00;
+    position: relative;
+    display: inline-block;
+}
+
+    .glitch::before,
+    .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        color: #0ff;
+        clip: rect(0, 900px, 0, 0);
+        animation: glitch 2s infinite;
+    }
+
+    .glitch::after {
+        color: #f0f;
+        animation-delay: 0.5s;
+    }
 
 @keyframes glitch {
     0% {
-        text-shadow: 2px 0 red, -2px 0 blue;
+        clip: rect(42px, 9999px, 44px, 0);
+    }
+
+    10% {
+        clip: rect(12px, 9999px, 16px, 0);
     }
 
     20% {
-        text-shadow: -2px 0 red, 2px 0 blue;
+        clip: rect(64px, 9999px, 68px, 0);
+    }
+
+    30% {
+        clip: rect(32px, 9999px, 36px, 0);
     }
 
     40% {
-        text-shadow: 2px 2px red, -2px -2px blue;
+        clip: rect(10px, 9999px, 14px, 0);
+    }
+
+    50% {
+        clip: rect(42px, 9999px, 44px, 0);
     }
 
     60% {
-        text-shadow: -2px -2px red, 2px 2px blue;
+        clip: rect(22px, 9999px, 26px, 0);
+    }
+
+    70% {
+        clip: rect(82px, 9999px, 86px, 0);
     }
 
     80% {
-        text-shadow: 0 2px red, 0 -2px blue;
+        clip: rect(52px, 9999px, 56px, 0);
+    }
+
+    90% {
+        clip: rect(12px, 9999px, 16px, 0);
     }
 
     100% {
-        text-shadow: 2px 0 red, -2px 0 blue;
+        clip: rect(0, 9999px, 4px, 0);
     }
 }
+
+/* Services Section */
+#services {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    text-align: center;
+    gap: 20px;
+}
+
+.service-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    border: 2px solid #f00;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .service-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #f00;
+    }
+
+    .service-card h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .service-card p {
+        font-size: 1rem;
+        color: #bbb;
+    }
+
+/* Featured Project Section */
+#featured-project {
+    background: #0d0d0d;
+    padding: 50px 0;
+    text-align: center;
+}
+
+    #featured-project iframe {
+        width: 90%;
+        height: 500px;
+        border: 2px solid red;
+        border-radius: 12px;
+        margin-top: 20px;
+    }
+
+/* Footer Section */
+footer {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
+
+.cta-button {
+    background: #f00;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+    .cta-button:hover {
+        background: #0ff;
+        color: #000;
+    }
